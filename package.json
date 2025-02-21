@@ -25,30 +25,17 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/bin/hopla.js",
-    "postinstall": "node dist/bin/showWelcomeMessage.js",
     "prepack": "npm run build",
     "prepublish:next": "npm run build",
     "publish:next": "npm publish --access public --tag next",
     "prepublish:npm": "npm run build",
-    "publish:npm": "npm publish --access public",
-    "lint": "eslint ./src  --config eslint.config.js",
-    "lint:fix": "npm run lint -- --fix",
-    "lint:strict": "npm run lint && tsc --noEmit",
-    "prettier": "prettier --write .",
-    "prepare": "husky install"
+    "publish:npm": "npm publish --access public"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.24.0",
-    "@typescript-eslint/parser": "^8.24.0",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "dotenv": "^16.4.7",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.3",
     "figlet": "^1.8.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "prettier": "^3.5.1",
     "shelljs": "^0.8.5",
     "winston": "^3.17.0"
   },
@@ -57,21 +44,7 @@
     "@types/figlet": "^1.7.0",
     "@types/node": "^22.13.2",
     "@types/shelljs": "^0.8.15",
-    "eslint": "^8.57.1",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.6.0",
     "typescript": "^5.7.3",
     "undici-types": "^7.3.0"
-  },
-  "lint-staged": {
-    "*.{js,json,ts,md}": "npm run prettier",
-    "*.{js,ts}": "npm run lint:strict"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
